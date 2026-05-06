@@ -25,7 +25,7 @@ package com.mycompany.mavenproject2;
         // Parameterized Constructor
         public Booking(String customerName, int roomNumber, int days, int pricePerNight, String roomtype, hotel h) {
             for (int i = 0; i < h.rooms.size(); i++) {
-                if (h.rooms.get(i) == roomNumber) {
+                if (h.rooms.get(i).getRoomNumber() == roomNumber) {
                     this.roomNumber = roomNumber;
                     b = true;
                 }
