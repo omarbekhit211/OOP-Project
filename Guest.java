@@ -29,6 +29,7 @@ public class Guest {
             setEmail(email);
             setPhoneNumber(phoneNumber);
             this.h=h;
+            h.addUser(this);
 
         }
 
@@ -87,7 +88,7 @@ public class Guest {
         // A helper method to display guest info easily
         @Override
         public String toString() {
-            h.guests.add(guestId);
+//            h.guests.add(guestId);
             return String.format("Guest [ID: %s | Name: %s | Email: %s | Phone %s]",
                     guestId, fullname, email,phoneNumber);
         }
