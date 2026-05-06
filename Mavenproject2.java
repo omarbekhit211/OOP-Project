@@ -6,9 +6,16 @@ import java.util.UUID;
    public class Mavenproject2{
      static void main(String[] args) {
          hotel h = new hotel();
-         h.addroom();
-         h.addroom(999);
-         h.removerooms(177);
+//         h.addroom();
+            SingleRoom room = new SingleRoom(0, 0,"availble" ,0, h);
+            SingleRoom room2 = new SingleRoom(0, 0,"availble" ,0, h);
+            DoubleRoom room3 = new DoubleRoom(0, 0, "available",0, h);
+            DoubleRoom room4 = new DoubleRoom(0, 0, "available",0, h);
+           h.addroom(room);
+         h.addroom(room2);
+         h.addroom(room3);
+         h.addroom(room4);
+         h.removeroom(room);
            
          // guest out
          Guest g=new Guest("Ahmed hamdy","ahmed@gmail.com","01112425",h);
@@ -26,10 +33,10 @@ import java.util.UUID;
 
 
      // room out
-         DoubleRoom r=new DoubleRoom(78,1000,1,h) ;
+         DoubleRoom r=new DoubleRoom(78,1000,"available",1,h) ;
          r.setRoomNumber(78);
          r.getRoomNumber();
-         SingleRoom sr=new SingleRoom(78,1000,1,h);
+         SingleRoom sr=new SingleRoom(78,1000,"available",1,h);
          sr.setNumberOfPersons(1);
          sr.getNumberOfPersons();
          sr.setPricePerNight(1000);
@@ -63,6 +70,8 @@ import java.util.UUID;
          rv.rev(10);
          rv.comment("زي الفل");
 
-         h.removerooms(78);
+         h.removeroom(room2);
+         System.out.println(h.getAllRoom_String());
+         System.out.println(h.getAllUsers_String());
      }
     }
