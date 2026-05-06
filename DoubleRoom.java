@@ -11,10 +11,10 @@ package com.mycompany.mavenproject2;
 
      public class DoubleRoom extends Room {
         //inheritance 2
-        public DoubleRoom(int roomNumber, double pricePerNight, int numberOfPersons, hotel h) {
-            super(roomNumber, pricePerNight, numberOfPersons,h);
+        public DoubleRoom(int roomNumber, double pricePerNight,String status ,int numberOfPersons, hotel h) {
+            super(roomNumber, pricePerNight,status, numberOfPersons,h);
             for (int i = 0; i < h.rooms.size(); i++) {
-                if (h.rooms.get(i) == roomNumber) {
+                if (h.rooms.get(i).getRoomNumber() == roomNumber) {
                     this.roomNumber = roomNumber;
                 } else {
                     System.out.println("room not found");
@@ -27,11 +27,14 @@ package com.mycompany.mavenproject2;
             }
         }
 
-        @Override
-        public void displayRoomInfo() {
-            System.out.println("Double Room");
-            super.displayRoomInfo();
-        }
+   
+        
+
+//        @Override
+//        public void displayRoomInfo() {
+//            System.out.println("Double Room");
+//            super.displayRoomInfo();
+//        }
     }
     
 
