@@ -16,16 +16,21 @@ public abstract class Room {
         protected double pricePerNight;
         protected boolean isAvailable;
         protected int numberOfPersons;
+        protected String status;
         hotel h;
 
         // constructor
-        public Room(int roomNumber, double pricePerNight, int numberOfPersons, hotel h) {
+        public Room(int roomNumber, double pricePerNight,String status ,int numberOfPersons, hotel h) {
             this.pricePerNight = pricePerNight;
             this.numberOfPersons = numberOfPersons;
             this.isAvailable = false;
+            setstatus(status);
+            this.status=status;
+            this.h= h;
+           
             this.h=h;
             for (int i = 0; i < h.rooms.size(); i++) {
-                if (h.rooms.get(i) == roomNumber) {
+                if (h.rooms.get(i).getRoomNumber() == roomNumber) {
                     this.isAvailable = true;
                     this.roomNumber = roomNumber;
                     break;
@@ -38,10 +43,17 @@ public abstract class Room {
             return roomNumber;
         }
 
+    public String getStatus() {
+        return status;
+    }
+        
+        
+        
+
         // setter room number
         public void setRoomNumber(int roomNumber) {
             for (int i = 0; i < h.rooms.size(); i++) {
-                if (h.rooms.get(i) == roomNumber) {
+                if (h.rooms.get(i).getRoomNumber() == roomNumber) {
                     this.isAvailable = true;
                     this.roomNumber = roomNumber;
                     break;
@@ -49,6 +61,13 @@ public abstract class Room {
             }
         }
         
+        public void setstatus(String status)
+    { 
+       if(status.equalsIgnoreCase("available")||
+        status.equalsIgnoreCase("booked"))
+      {this.status=status.toUpperCase();}
+       else {System.out.println("Write the status correctly (Available,Booked)");}
+    }
         
 
         
@@ -80,6 +99,13 @@ public abstract class Room {
             System.out.println("Number Of Persons: " + numberOfPersons);
             System.out.println("Available: " + isAvailable);
         }
+
+    @Override
+    public String toString() {
+        return "Room{" + "roomNumber=" + roomNumber + ", pricePerNight=" + pricePerNight + ", numberOfPersons=" + numberOfPersons + ", status=" + status +  '}';
+    }
+        
+        
     }
 
     
